@@ -36,7 +36,7 @@ def start_charm():
                 'ports': [
                     {
                         'name': 'ambassador',
-                        'containerPort': 8080,
+                        'containerPort': 80,
                     },
                 ],
                 'config': {

@@ -1,6 +1,7 @@
 import os
 
-from charms.reactive import set_flag, clear_flag
+from charmhelpers.core import hookenv
+from charms.reactive import set_flag, clear_flag, data_changed
 from charms.reactive import when, when_not
 
 from charms import layer
@@ -9,6 +10,16 @@ from charms import layer
 @when('charm.kubeflow-ambassador.started')
 def charm_ready():
     layer.status.active('')
+
+
+# @when('annotations.available')
+# def charm_ready(annotations):
+#     services = annotations.services()
+#     print(annotations)
+#     print(services)
+#     print(data_changed('annotations', services))
+#     print(data_changed('config', hookenv.config()))
+#     raise Exception('ASDF')
 
 
 @when('layer.docker-resource.ambassador-image.changed')
